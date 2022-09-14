@@ -1,7 +1,6 @@
-import {getTheme} from './../../../themes/colors';
 import {Platform} from 'react-native';
 import {StyleSheet} from 'react-native';
-import typography from './../../../themes/typography';
+import {typography, theme} from 'appConstants';
 
 const baseStyles = StyleSheet.create({
   label: {
@@ -27,9 +26,7 @@ const baseStyles = StyleSheet.create({
   },
 });
 
-export const getStyles = (themeName?: string) => {
-  const theme = getTheme(themeName);
-
+export const getStyles = () => {
   return StyleSheet.create({
     input__container: {
       width: '100%',
@@ -53,7 +50,7 @@ export const getStyles = (themeName?: string) => {
     },
     input__holder__default: {
       ...baseStyles.input__holder,
-      borderColor: theme.neutral30,
+      borderColor: theme.primary,
     },
     input__holder__error: {
       ...baseStyles.input__holder,

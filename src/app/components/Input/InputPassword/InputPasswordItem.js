@@ -5,7 +5,7 @@ import Icon from '../../Icon';
 import React from 'react';
 
 const InputPasswordItem = ({caption = '', type = INPUT_TYPES.DEFAULT}) => {
-  const styles = getStyles(theme);
+  const styles = getStyles();
   const selectedtheme = theme;
 
   const leftComponent = () => {

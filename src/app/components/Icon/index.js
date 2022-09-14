@@ -1,6 +1,7 @@
 import {getStyles} from './Icon.styles';
 import {TouchableOpacity} from 'react-native';
-import {ICONS, theme} from 'appConstants';
+import {theme} from 'appConstants';
+import ICONS from '../../../../assets/icons';
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
@@ -32,8 +33,10 @@ const Icon = ({
   }
 
   const selectedTheme = theme;
-  const primaryFill = primaryColor ? primaryColor : selectedTheme.neutral;
-  const secondaryFill = secondaryColor ? secondaryColor : selectedTheme.primary;
+  const primaryFill = primaryColor ? primaryColor : selectedTheme.primary;
+  const secondaryFill = secondaryColor
+    ? secondaryColor
+    : selectedTheme.secondary;
   const styles = getStyles();
   const isTouchableStyle = onPress
     ? [{width: touchableArea, height: touchableArea}]

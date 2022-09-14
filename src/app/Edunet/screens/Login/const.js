@@ -1,0 +1,7 @@
+const TYPE_LOGIN = {
+  DOCENTE: 'DOCENTE',
+  SUPERVISION: 'SUPEERVISION',
+  PADRE: '',
+};
+
+export {TYPE_LOGIN};

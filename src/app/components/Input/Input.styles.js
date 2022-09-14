@@ -40,7 +40,7 @@ export const getStyles = () => {
 
     input__holder__default: {
       ...baseStyles.input__holder,
-      borderColor: theme.neutral30,
+      borderColor: theme.primary,
     },
     input__holder__error: {
       ...baseStyles.input__holder,
@@ -51,7 +51,7 @@ export const getStyles = () => {
       borderColor: theme.approved,
     },
     input__holder__focus: {
-      borderColor: theme.primary,
+      borderColor: theme.secondary,
     },
     input__holder__disabled: {
       backgroundColor: theme.neutral30,

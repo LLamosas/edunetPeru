@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export const getStyles = () => {
   return StyleSheet.create({
     checkBox: {
-      flexBasis: 20,
       alignItems: 'center',
       flexDirection: 'row',
     },

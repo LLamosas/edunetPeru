@@ -25,7 +25,7 @@ const Button = ({
   let iconColor = colors.secondary;
 
   switch (type) {
-    case BUTTON_TYPES.SECONNDARY:
+    case BUTTON_TYPES.SECONDARY:
       buttonStyles.push(styles.button__secondary);
       buttonTextStyles.push(styles.button__text__secondary);
       if (pressed) {
@@ -126,5 +126,6 @@ const Button = ({
     </Pressable>
   );
 };
+Button.types = BUTTON_TYPES;
 
 export default Button;

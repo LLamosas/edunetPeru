@@ -1,10 +1,9 @@
-import {Platform, Text, TextInput, View} from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 
 import {getStyles} from './Input.styles.js';
 import {theme, INPUT_TYPES, ICONS} from 'appConstants';
 import Icon from '../Icon';
-import TextInputMask from 'react-native-text-input-mask';
 import Tooltip from '../Tooltip';
 
 const Input = ({
@@ -26,7 +25,6 @@ const Input = ({
   placeholder,
   onChangeText,
   maxLength,
-  mask,
   placeholderTextColor = theme.text50,
   ...otherProps
 }) => {
@@ -59,82 +57,16 @@ const Input = ({
   ];
   const inputStyle = [styles.input, !editable ? styles.input__disabled : null];
 
-  const maskedInputStyle = [
-    styles.masked__input,
-    !editable ? styles.masked__input__disabled : null,
-  ];
-
   //Not reachable since ActionSheetIOS doesn't have mock support
   /* istanbul ignore next */
 
   const getInputComponent = () => {
-    return mask ? (
-      <>
-        {Platform.OS === 'ios' ? (
-          <TextInputMask
-            testID={testID}
-            accessibilityLabel={accessibilityLabel}
-            keyboardType={keyboardType}
-            maxLength={maxLength}
-            secureTextEntry={secureText}
-            placeholder={placeholder}
-            placeholderTextColor={placeholderTextColor}
-            style={inputStyle}
-            onChangeText={onChangeText}
-            onFocus={e => {
-              setFocus(true);
-              /* istanbul ignore else */
-              if (onFocus) {
-                onFocus(e);
-              }
-            }}
-            onBlur={e => {
-              setFocus(false);
-              /* istanbul ignore else */
-              if (onBlur) {
-                onBlur(e);
-              }
-            }}
-            mask={mask}
-            value={value}
-          />
-        ) : (
-          <View style={[inputStyle]}>
-            <TextInputMask
-              testID={testID}
-              accessibilityLabel={accessibilityLabel}
-              keyboardType={keyboardType}
-              maxLength={maxLength}
-              secureTextEntry={secureText}
-              placeholder={placeholder}
-              placeholderTextColor={placeholderTextColor}
-              style={[maskedInputStyle]}
-              onChangeText={onChangeText}
-              onFocus={e => {
-                setFocus(true);
-                /* istanbul ignore else */
-                if (onFocus) {
-                  onFocus(e);
-                }
-              }}
-              onBlur={e => {
-                setFocus(false);
-                /* istanbul ignore else */
-                if (onBlur) {
-                  onBlur(e);
-                }
-              }}
-              mask={mask}
-              value={value}
-            />
-          </View>
-        )}
-      </>
-    ) : (
+    return (
       <TextInput
         {...otherProps}
         testID={testID}
         accessibilityLabel={accessibilityLabel}
+        placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
         numberOfLines={1}
         keyboardType={keyboardType}

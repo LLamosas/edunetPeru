@@ -1,5 +1,5 @@
 export const BUTTON_TYPES = {
   PRIMARY: 'primary',
-  SECONNDARY: 'secondary',
+  SECONDARY: 'secondary',
   TERITIARY: 'tertiary',
 };
